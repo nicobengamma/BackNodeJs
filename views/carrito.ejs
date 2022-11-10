@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>Carrito</title>
+  </head>
+  <body>
+    <h2 class="title text-center">Carrito</h2>
+    <div>
+      <a href="/api/products">
+        <button class="btn btn-success m-2">Volver</button>
+      </a>
+    </div>
+    <div class="col-md-2 p-2">
+      <div class="card p-2 m-auto bg-light">
+        <h5>Eliminar Producto</h5>
+        <form
+          action="/api/carrito/eliminarProd"
+          method="post"
+          class="row g-3 needs-validation"
+          novalidate
+        >
+          <div class="form-floating mb-6">
+            <input type="text" class="form-control" name="id" />
+            <label for="floatingInput">ID del Producto</label>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-primary" type="submit">
+              Eliminar Producto
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card col-md-10 mx-5 text-center bg-light">
+      <% if(productos.length == 0) { %>
+      <h2>No hay productos ingresados !!</h2>
+      <% } else { %>
+      <table class="table">
+        <h5>Carrito</h5>
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Foto del Producto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Price</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Descripcion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% productos.forEach(productos => { %>
+          <tr>
+            <td><%=productos.id%></td>
+            <td><img src="<%=productos.url%>" height="100px" /></td>
+            <td><%=productos.name%></td>
+            <td>$<%=productos.price%></td>
+            <td>.<%=productos.stock%></td>
+            <td>#<%=productos.codigo%></td>
+            <td><%=productos.descripcion%></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <% } %>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="/index.js"></script>
+  </body>
+</html>
