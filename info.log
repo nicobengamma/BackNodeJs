@@ -1,0 +1,22 @@
+[2022-11-10T19:36:23.335] [INFO] default - Usuario no existente
+[2022-11-10T19:36:23.363] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:371:5)
+    at ServerResponse.setHeader (node:_http_outgoing:576:11)
+    at ServerResponse.header (C:\Users\eli\Documents\BackEnd\BackEnd Final\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.location (C:\Users\eli\Documents\BackEnd\BackEnd Final\node_modules\express\lib\response.js:915:15)
+    at ServerResponse.redirect (C:\Users\eli\Documents\BackEnd\BackEnd Final\node_modules\express\lib\response.js:953:18)
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\routes\user.router.js:62:13
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2022-11-10T19:36:32.004] [INFO] default - Usuario no existente
+[2022-11-10T19:36:32.009] [ERROR] default - Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:371:5)
+    at ServerResponse.setHeader (node:_http_outgoing:576:11)
+    at ServerResponse.header (C:\Users\eli\Documents\BackEnd\BackEnd Final\node_modules\express\lib\response.js:794:10)
+    at ServerResponse.location (C:\Users\eli\Documents\BackEnd\BackEnd Final\node_modules\express\lib\response.js:915:15)
+    at ServerResponse.redirect (C:\Users\eli\Documents\BackEnd\BackEnd Final\node_modules\express\lib\response.js:953:18)
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\routes\user.router.js:62:13
+    at processTicksAndRejections (node:internal/process/task_queues:96:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}

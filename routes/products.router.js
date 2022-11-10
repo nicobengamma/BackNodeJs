@@ -9,13 +9,12 @@ const typeLogg = process.env.NODE_ENV == "Production" ? "prod" : "consola";
 const logger = log4js.getLogger(typeLogg);
 
 //-----------------//
-const mongoose = require("mongoose");
 const { client, uri } = require("../services/server");
 const Users = require("../models/schema.users");
 const Logins = require("../models/schema.logins");
+const { collection, collectionCarrito } = require("../models/collections.bd");
 
 client.connect((err) => {
-  const collection = client.db("myFirstDatabase").collection("users");
   routerProducts.get("/", (req, res) => {
     collection.find({}).toArray((err, data) => {
       if (err) {
@@ -58,13 +57,6 @@ client.connect((err) => {
       const { name, price, url } = req.body;
       if (name && price && url) {
         const id = productosBefore.length + 1;
-        mongoose.connect(uri, {}, (error) => {
-          if (error) {
-            logger.error(err);
-            return;
-          }
-          console.log("db connected");
-        });
         const nuevoUsuario = new Users({
           id: id,
           name: req.body.name,
@@ -92,13 +84,6 @@ client.connect((err) => {
   routerProducts.post("/actualizarProd", (req, res) => {
     const { id, name, price, url, descripcion, codigo, stock } = req.body;
     if (name && price && url && id && descripcion && codigo && stock) {
-      mongoose.connect(uri, {}, (error) => {
-        if (error) {
-          logger.error(err);
-          return;
-        }
-      });
-
       Users.findOneAndUpdate(
         { id: id },
         {
@@ -133,13 +118,6 @@ client.connect((err) => {
       const total = productos.length;
       const { id } = req.body;
       if (id <= total) {
-        mongoose.connect(uri, {}, (error) => {
-          if (error) {
-            logger.error(err);
-            return;
-          }
-        });
-
         Users.findOneAndRemove({ id: id }, function (err, docs) {
           if (err) {
             logger.error(err);
