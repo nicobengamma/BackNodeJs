@@ -1,18 +1,9 @@
 const express = require("express");
 const { Router } = express;
 const routerProducts = Router();
-
-//-----------------//
-
-const log4js = require("log4js");
-const typeLogg = process.env.NODE_ENV == "Production" ? "prod" : "consola";
-const logger = log4js.getLogger(typeLogg);
-
-//-----------------//
-
+const logger = require("../services/logger");
 const { guardar, actualizar, eliminar } = require("../services/productService");
 const { client } = require("../services/server");
-const Users = require("../models/schema.users");
 const { collection } = require("../models/collections.bd");
 
 client.connect((err) => {
