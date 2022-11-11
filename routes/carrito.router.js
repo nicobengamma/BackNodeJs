@@ -4,6 +4,7 @@ const routerCarrito = Router();
 const { Users, Carrito, Carts, addCart } = require("../models/schema.users");
 const { client } = require("../services/server");
 const { collection, collectionCarrito } = require("../models/collections.bd");
+const { addCarrito, eliminarProd } = require("../services/carritoService");
 
 //--- JHASDQPLMCN ----//
 
@@ -18,25 +19,12 @@ client.connect((err) => {
 });
 routerCarrito.post("/eliminarProd", (req, res) => {
   const { id } = req.body;
-  collectionCarrito.find({}).toArray((err, data) => {
-    if (err) {
-      console.log(err);
-    }
-    const prodInCart = data;
-    const total = prodInCart.length;
-    if (id) {
-      Carts.findOneAndDelete({ id: id }, (err, docs) => {
-        if (err) {
-          console.log(err);
-        }
-        console.log(docs);
-      });
-      setTimeout(() => {
-        res.redirect("/api/carrito/Products");
-      }, 3000);
-    }
-  });
+  eliminarProd(id);
+  setTimeout(() => {
+    res.redirect("/api/carrito/Products");
+  }, 3000);
 });
+
 routerCarrito.get("/products", (req, res) => {
   collectionCarrito.find({}).toArray((err, data) => {
     const productos = data;
