@@ -4,8 +4,6 @@ const sessionFile = require("session-file-store");
 const cookieParser = require("cookie-parser");
 const MongoStore = require("connect-mongo");
 
-const app = express();
-
 app.use(cookieParser());
 app.use(
   session({
@@ -23,9 +21,4 @@ app.use(
   })
 );
 
-function isAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/");
-}
+app.listen(8080);

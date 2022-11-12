@@ -17,7 +17,7 @@ client.connect((err) => {
       res.render("page.ejs", { productos });
     });
   });
-  routerProducts.get("/admin", (req, res) => {
+  routerProducts.get("/admin", auth, (req, res) => {
     collection.find({}).toArray((err, data) => {
       if (err) {
         logger.error(err);
@@ -69,5 +69,10 @@ client.connect((err) => {
     }, 2000);
   });
 });
+
+let auth = function (req, res, next) {
+  if (req.session) return next();
+  else return res.sendStatus(401);
+};
 
 module.exports = routerProducts;

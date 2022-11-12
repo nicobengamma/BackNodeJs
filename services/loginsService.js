@@ -42,9 +42,10 @@ const login = (input) => {
       }
     })
     .then((r) => {
-      if (!r) {
-        logger.info("Usuario no existente");
+      if (r) {
+        session;
       } else {
+        logger.info("Usuario no existente");
       }
     })
     .catch((err) => logger.error(err));
