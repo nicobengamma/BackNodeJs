@@ -12,7 +12,7 @@ client.connect(() => {
   });
   routerUser.post("/registro", (req, res) => {
     const input = req.body;
-    registrar(input);
+    registrar(input, res);
     setTimeout(() => {
       collection.find({}).toArray((err, data) => {
         const productos = data;

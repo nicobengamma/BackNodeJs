@@ -53,3 +53,19 @@
     at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
     at processTicksAndRejections (node:internal/process/task_queues:96:5)
 [2022-11-12T12:52:07.513] [INFO] default - Usuario no existente
+[2022-11-12T18:01:54.288] [INFO] default - Usuario no existente
+[2022-11-12T18:01:54.297] [ERROR] default - ReferenceError: res is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:70:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-12T18:04:08.456] [INFO] default - Usuario no existente
+[2022-11-12T18:04:08.481] [ERROR] default - TypeError: Cannot read properties of undefined (reading 'sendStatus')
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:54:20
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-12T18:05:13.740] [INFO] default - Usuario no existente
+[2022-11-12T18:07:41.485] [INFO] default - Usuario no existente
+[2022-11-12T18:08:44.527] [INFO] default - Usuario no existente
+[2022-11-12T18:10:01.534] [ERROR] default - ReferenceError: req is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:51:9
+[2022-11-12T18:15:25.764] [INFO] default - Usuario no existente
+[2022-11-12T18:15:34.535] [ERROR] default - ReferenceError: req is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:52:9

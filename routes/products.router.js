@@ -21,7 +21,7 @@ client.connect((err) => {
     collection.find({}).toArray((err, data) => {
       if (err) {
         logger.error(err);
-        return res.sendStatus(500);
+        return res.send("Usted no es admin");
       }
       const productos = data;
       res.render("admin.ejs", { productos });
@@ -71,8 +71,8 @@ client.connect((err) => {
 });
 
 let auth = function (req, res, next) {
-  if (req.session) return next();
-  else return res.sendStatus(401);
+  if (req.session.admin) return next();
+  else return res.send("Usted no esta registrado");
 };
 
 module.exports = routerProducts;
