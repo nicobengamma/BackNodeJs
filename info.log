@@ -20,3 +20,36 @@
     at processTicksAndRejections (node:internal/process/task_queues:96:5) {
   code: 'ERR_HTTP_HEADERS_SENT'
 }
+[2022-11-11T12:06:31.297] [INFO] default - Usuario no existente
+[2022-11-11T12:06:31.315] [ERROR] default - ReferenceError: res is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-11T12:11:03.929] [INFO] default - Usuario no existente
+[2022-11-11T12:12:04.151] [INFO] default - Usuario no existente
+[2022-11-11T12:12:04.158] [ERROR] default - ReferenceError: kill is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-11T12:19:25.607] [INFO] default - Usuario no existente
+[2022-11-11T12:19:25.619] [ERROR] default - ReferenceError: res is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-11T12:19:56.410] [INFO] default - Usuario no existente
+[2022-11-11T12:19:56.414] [ERROR] default - ReferenceError: res is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-11T12:22:07.434] [INFO] default - Usuario no existente
+[2022-11-11T12:22:36.239] [INFO] default - Usuario no existente
+[2022-11-11T12:22:36.246] [ERROR] default - ReferenceError: stop is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-11T12:25:30.868] [INFO] default - Usuario no existente
+[2022-11-12T12:44:34.956] [INFO] default - Usuario no existente
+[2022-11-12T12:46:22.085] [INFO] default - Usuario no existente
+[2022-11-12T12:46:22.192] [ERROR] default - ReferenceError: res is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-12T12:48:22.232] [INFO] default - Usuario no existente
+[2022-11-12T12:48:22.239] [ERROR] default - ReferenceError: res is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:9
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2022-11-12T12:52:07.513] [INFO] default - Usuario no existente
