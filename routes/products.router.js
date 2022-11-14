@@ -6,8 +6,11 @@ const { guardar, actualizar, eliminar } = require("../services/productService");
 const { client } = require("../services/server");
 const { collection } = require("../models/collections.bd");
 const verifyToken = require("../services/verifyToken");
+const cookieParser = require("cookie-parser");
+const config = require("../config/config");
 
 client.connect((err) => {
+  routerProducts.use(cookieParser());
   routerProducts.get("/", (req, res) => {
     collection.find({}).toArray((err, data) => {
       if (err) {
@@ -18,7 +21,16 @@ client.connect((err) => {
       res.render("page.ejs", { productos });
     });
   });
-  routerProducts.get("/admin", verifyToken, (req, res) => {
+  routerProducts.get("/admin", (req, res) => {
+    const token = req.cookies;
+    console.log(token.auth);
+    if (!token) return res.status(401).json({ error: "Acceso denegado" });
+    try {
+      jwt.verify(token, config.TOKEN_SECRET);
+      next();
+    } catch (error) {
+      res.status(400).json({ error: "token no es válido" });
+    }
     collection.find({}).toArray((err, data) => {
       if (err) {
         logger.error(err);

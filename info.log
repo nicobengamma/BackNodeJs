@@ -131,3 +131,5 @@
     at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:55:11 {
   code: 'ERR_HTTP_HEADERS_SENT'
 }
+[2022-11-14T16:26:48.893] [ERROR] default - TypeError: res.headers is not a function
+    at C:\Users\kikec\Documents\backend\BackNodeJs\services\loginsService.js:53:11

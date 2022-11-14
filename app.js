@@ -1,13 +1,15 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const routerCarrito = require("./routes/carrito.router");
 const routerProducts = require("./routes/products.router");
 const routerUser = require("./routes/user.router");
 const routerInfo = require("./routes/info.router");
 const routerRandoms = require("./routes/randoms.router");
+
 const config = require("./config/config");
 
 const app = express();
-
+app.use(cookieParser());
 // Middleware //
 
 app.use(express.json());

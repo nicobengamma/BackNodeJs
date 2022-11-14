@@ -4,8 +4,6 @@ const Logins = require("../models/schema.logins");
 const bcrypt = require("bcrypt");
 const logger = require("../config/log4js");
 const mongoose = require("mongoose");
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
 const jwt = require("jsonwebtoken");
 const config = require("../config/config");
 
@@ -52,7 +50,7 @@ const login = (input, res) => {
         },
         config.TOKEN_SECRET
       );
-      res.header("auth-token", token);
+      res.cookie("auth", token);
     })
     .catch((err) => logger.error(err));
 };
