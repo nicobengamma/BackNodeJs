@@ -5,6 +5,7 @@ const logger = require("../services/logger");
 const { guardar, actualizar, eliminar } = require("../services/productService");
 const { client } = require("../services/server");
 const { collection } = require("../models/collections.bd");
+const verifyToken = require("../services/verifyToken");
 
 client.connect((err) => {
   routerProducts.get("/", (req, res) => {
@@ -17,7 +18,7 @@ client.connect((err) => {
       res.render("page.ejs", { productos });
     });
   });
-  routerProducts.get("/admin", auth, (req, res) => {
+  routerProducts.get("/admin", verifyToken, (req, res) => {
     collection.find({}).toArray((err, data) => {
       if (err) {
         logger.error(err);
@@ -69,10 +70,5 @@ client.connect((err) => {
     }, 2000);
   });
 });
-
-let auth = function (req, res, next) {
-  if (req.session.admin) return next();
-  else return res.send("Usted no esta registrado");
-};
 
 module.exports = routerProducts;

@@ -3,6 +3,7 @@ const { Router } = express;
 const routerUser = Router();
 const { client, uri } = require("../services/server");
 const { registrar, login } = require("../services/loginsService");
+const verifyToken = require("../services/verifyToken");
 
 client.connect(() => {
   const collection = client.db("myFirstDatabase").collection("users");
@@ -22,8 +23,10 @@ client.connect(() => {
   });
   routerUser.post("/inicio", (req, res) => {
     const input = req.body;
-    login(input);
-    res.redirect("/api/products/admin");
+    login(input, res);
+    setTimeout(() => {
+      res.redirect("/api/products/admin");
+    }, 3000);
   });
 });
 module.exports = routerUser;
