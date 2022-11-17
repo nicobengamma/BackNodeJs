@@ -5,13 +5,11 @@ const routerProducts = require("./routes/products.router");
 const routerUser = require("./routes/user.router");
 const routerInfo = require("./routes/info.router");
 const routerRandoms = require("./routes/randoms.router");
-
 const config = require("./config/config");
 
 const app = express();
-app.use(cookieParser());
-// Middleware //
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: "true" }));
 
