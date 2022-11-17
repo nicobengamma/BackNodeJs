@@ -21,13 +21,13 @@ client.connect((err) => {
       res.render("page.ejs", { productos });
     });
   });
-  routerProducts.get("/admin", (req, res) => {
-    const token = req.cookies;
-    console.log(token.auth);
+  routerProducts.get("/admin", (req, res, next) => {
+    const token = req.header("auth-token");
     if (!token) return res.status(401).json({ error: "Acceso denegado" });
     try {
-      jwt.verify(token, config.TOKEN_SECRET);
-      next();
+      const verified = jwt.verify(token, process.env.TOKEN_SECRET);
+      req.usuario = verified;
+      next(); // continuamos
     } catch (error) {
       res.status(400).json({ error: "token no es válido" });
     }

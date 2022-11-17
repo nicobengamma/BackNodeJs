@@ -133,3 +133,17 @@
 }
 [2022-11-14T16:26:48.893] [ERROR] default - TypeError: res.headers is not a function
     at C:\Users\kikec\Documents\backend\BackNodeJs\services\loginsService.js:53:11
+[2022-11-14T17:38:45.429] [ERROR] consola - Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.uo708jn.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:dns:213:19) {
+  errno: undefined,
+  code: 'ECONNREFUSED',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.uo708jn.mongodb.net'
+}
+[2022-11-14T17:54:33.047] [ERROR] default - Error: secretOrPrivateKey must have a value
+    at Object.module.exports [as sign] (C:\Users\eli\Documents\BackEnd\BackEnd Final\node_modules\jsonwebtoken\sign.js:107:20)
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:47:25
+[2022-11-14T17:59:26.354] [ERROR] default - ReferenceError: user is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:49:17
+[2022-11-14T18:01:38.365] [ERROR] default - ReferenceError: user is not defined
+    at C:\Users\eli\Documents\BackEnd\BackEnd Final\services\loginsService.js:49:17

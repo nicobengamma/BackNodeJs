@@ -31,27 +31,23 @@ const registrar = (input, res) => {
 };
 const login = (input, res) => {
   const { usuario, password } = input;
-  usuarios
-    .findOne({ usuario: usuario })
-    .then((r) => {
-      if (r) {
-        mongoose.connect(uri, {}, (error) => {
-          if (error) {
-            console.log(error);
-          }
-        });
-        return bcrypt.compare(password, r.password);
-      }
-    })
-    .then((r) => {
-      const token = jwt.sign(
-        {
-          name: usuario.name,
-        },
-        config.TOKEN_SECRET
-      );
-      res.cookie("auth", token);
-    })
-    .catch((err) => logger.error(err));
+  usuarios.findOne({ usuario: usuario }).then((r) => {
+    if (r) {
+      mongoose.connect(uri, {}, (error) => {
+        if (error) {
+          console.log(error);
+        }
+      });
+      return bcrypt.compare(password, r.password);
+    }
+  });
+  const token = jwt.sign(
+    {
+      name: usuario.name,
+      id: usuario._id,
+    },
+    config.TOKEN_SECRET
+  );
+  res.header("auth-token", token);
 };
 module.exports = { registrar, login };
